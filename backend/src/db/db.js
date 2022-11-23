@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const localdb = new Sequelize("database", "username", "password", {
   dialect: "sqlite",
-  storage: "./src/db/gym-tracker.sqlite",
+  storage: "./src/db/todolist.sqlite",
   logging: false,
 });
 
