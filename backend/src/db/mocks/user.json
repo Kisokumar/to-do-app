@@ -1,0 +1,31 @@
+{
+    "usersData": [
+        {
+            "username": "dafduck",
+            "password": "goofy",
+            "email": "daffy@duck.com",
+            "fullname": "daffy duck"
+        },
+        {
+            "username": "randuser",
+            "password": "asdfsAS2@1",
+            "fullname": "someone random"
+        },
+        {
+            "username": "arnshwarz",
+            "password": "getToTheChopper",
+            "email":"arnold@schwarz.com",
+            "fullname": "arnold schwarzenegger"
+        },
+        {
+            "username": "chronicprocrastinator",
+            "password": "Ican'tgetanythingdone:(",
+            "email":"procrastinator@school.edu"
+        },
+        {
+            "username": "morty",
+            "password": "imscaredrick",
+            "email":"morty@gmail.com"
+        }
+    ]
+}
