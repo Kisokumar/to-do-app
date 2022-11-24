@@ -1,10 +1,10 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const localdb = new Sequelize("database", "username", "password", {
+
+const db = new Sequelize("database", "username", "password", {
   dialect: "sqlite",
   storage: "./src/db/todolist.sqlite",
   logging: false,
 });
 
-db = localdb;
-
+//export
 module.exports = { db, DataTypes };

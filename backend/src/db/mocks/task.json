@@ -1,0 +1,31 @@
+{
+    "tasksData": [
+        {
+            "taskname": "Finish homework",
+            "taskdesc": "CS101",
+            "datedue": "11/25/2022",
+            "priority": "urgent",
+            "category": "school",
+            "username": "chronicprocrastinator"
+        },
+        {
+            "taskname": "Get to the chopper",
+            "datedue": "03/22/2075",
+            "category": "work",
+            "username": "arnshwarz"
+        },
+        {
+            "taskname": "Defeat skynet",
+            "datedue": "05/22/2075",
+            "priority": "urgent",
+            "category": "work",
+            "username": "arnshwarz"
+        },
+        {
+            "taskname": "Go back to the future",
+            "datedue": "05/06/2022",
+            "priority": "urgent",
+            "username": "morty"
+        }
+    ]
+}
