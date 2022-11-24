@@ -1,7 +1,10 @@
 import { useState } from "react"
 import userExists from "../utils/userExists";
 
-export default function LogIn(props) {
+
+let globalusername;
+
+function LogIn(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
@@ -23,6 +26,8 @@ export default function LogIn(props) {
     props.setIsLogInShown(current => !current);
   }
 
+  globalusername = username;
+
   return(
     <div className="form-space">
       <div></div>
@@ -37,3 +42,5 @@ export default function LogIn(props) {
 
   )
 }
+
+export {LogIn, globalusername}
