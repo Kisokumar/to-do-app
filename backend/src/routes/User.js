@@ -22,8 +22,10 @@ userRouter.get("/:username", async (req, res) => {
     }
 })
 
+// Not working
 userRouter.get("/:username/tasks"), async (req, res) => {
     try {
+        console.log("hi")
         const tasks = await Task.findAll({where: { username: req.params.username}})
         res.status(200).send(tasks)
     } catch(error) {
@@ -40,6 +42,7 @@ userRouter.post("/create", async (req, res) => {
     }
 })
 
+// Not working
 userRouter.get("/tasks/:taskid"), async (req, res) => {
     try {
        const tasks = await Task.findOne({where: {id: req.params.taskid}})
