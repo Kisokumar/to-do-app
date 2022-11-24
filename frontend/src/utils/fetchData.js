@@ -1,9 +1,9 @@
-const localhost = "https://localhost:5001";
+const localhost = "http://localhost:5001";
 
 export default async function fetchData(route, method, body) {
   let response = {};
 
-  if (body) {
+  if (!body) {
     response = await fetch(localhost + route, { method: method });
     console.log("no body");
   } else {
