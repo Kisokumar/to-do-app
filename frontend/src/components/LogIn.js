@@ -24,12 +24,16 @@ export default function LogIn(props) {
   }
 
   return(
-    <form onSubmit={submitLogIn}>
-      <label>Username: </label>
-      <input onChange={(e) => setUsername(e.target.value)} placeholder="Username" /><br></br>
-      <label>Password: </label>
-      <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" /><br></br>
-      <button type="submit">Log in</button>
-    </form>
+    <div className="form-space">
+      <div></div>
+      <form className="user-form" onSubmit={submitLogIn}>
+        <label>username: </label><br></br>
+        <input onChange={(e) => setUsername(e.target.value)} placeholder="Username" /><br></br>
+        <label>password: </label><br></br>
+        <input onChange={(e) => setPassword(e.target.value)} placeholder="Password" /><br></br>
+        <button className="form-btn" type="submit">Log in</button>
+      </form>
+    </div>
+
   )
 }
