@@ -7,11 +7,12 @@ const Task = db.define("tasks", {
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4,
   },
+  username: { type: DataTypes.STRING, allowNull: false },
   taskname: { type: DataTypes.STRING, allowNull: false },
   datedue: { type: DataTypes.STRING, allowNull: false },
-  priority: { type: DataTypes.STRING, allowNull: true },
+  taskdesc: { type: DataTypes.STRING, allowNull: true },
   category: { type: DataTypes.STRING, allowNull: true },
-  userId: { type: Sequelize.UUID, allowNull: false },
+  priority: { type: DataTypes.STRING, allowNull: true },
 });
 
 module.exports = { Task };
