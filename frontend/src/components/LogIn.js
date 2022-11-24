@@ -1,9 +1,9 @@
 import { useState } from "react"
 
+
 export default function LogIn(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
 
   function submitLogIn(event) {
     event.preventDefault()
