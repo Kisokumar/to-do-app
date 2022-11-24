@@ -1,22 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import Register from './components/Register';
+import LogIn from './components/LogIn';
 import './App.css';
 
 function App() {
+  const [isRegisterShown, setIsRegisterShown] = useState(false);
+  const [isLogInShown, setIsLogInShown] = useState(false);
+
+  function registerClick (event){
+    // 👇️ toggle shown state
+    setIsRegisterShown(current => !current);
+  }
+
+  function logInClick (event){
+    // 👇️ toggle shown state
+    setIsLogInShown(current => !current);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={registerClick}>Register</button>
+        {isRegisterShown && <Register setIsRegisterShown={setIsRegisterShown}/>}
+        <button onClick={logInClick}>Log in</button>
+        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown}/>}
       </header>
     </div>
   );
