@@ -10,9 +10,10 @@ app.use(express.json());
 
 
 app.use("/users", userRouter);
+app.use(cors());
 
 app.listen(5001, () => {
-    console.log("listing to port 5001")
+  console.log("listing to port 5001");
 });
 
 module.exports = app;
