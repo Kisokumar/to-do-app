@@ -1,4 +1,5 @@
 import { useState } from "react"
+import userExists from "../utils/userExists";
 
 export default function LogIn(props) {
   const [username, setUsername] = useState();
@@ -13,8 +14,13 @@ export default function LogIn(props) {
     }
 
     console.log(user);
+    if (userExists) {
+      alert("Log in completed successfully");
+    }
+    else {
+      alert("Incorrect username or password");
+    }
     props.setIsLogInShown(current => !current);
-    alert("Log in completed successfully");
   }
 
   return(
