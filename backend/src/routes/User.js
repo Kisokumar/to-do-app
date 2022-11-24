@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const userRouter = Router();
-const User = require("../models/");
+const { User, Task } = require("../models/");
+
 
 
 userRouter.get("/", async (req, res) => {
@@ -32,7 +33,7 @@ userRouter.get("/:username/tasks"), async (req, res) => {
 
 userRouter.post("/create", async (req, res) => {
     try {
-       user = await User.create(req.body)
+       const user = await User.create(req.body)
        res.status(200).send(user)
     } catch(error) {
         res.status(500).send(error)
@@ -50,8 +51,7 @@ userRouter.get("/tasks/:taskid"), async (req, res) => {
 
 userRouter.post("/:username/tasks/create", async(req, res) => {
     try {
-
-       task = await Task.create(req.body)
+       const task = await Task.create(req.body)
        res.status(200).send(task)
     } catch(error) {
         res.status(500).send(error)
