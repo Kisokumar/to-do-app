@@ -1,6 +1,5 @@
 const { Sequelize } = require("sequelize");
 const { db, DataTypes } = require("../db/db");
-const uniqueIdGenerator = require("../middleware/uniqueIdGenerator");
 
 const User = db.define("users", {
   id: {
