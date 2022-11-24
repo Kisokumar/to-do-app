@@ -1,14 +1,15 @@
 const express = require("express");
+const { db } = require("./db/db");
 const app = express();
 
 const userRouter = require("./routes/User");
-const taskRouter = require("./routes/Task");
 
 app.use(express.json());
 
-app.use("/user", userRouter);
-app.use("/task", taskRouter);
+app.use("/users", userRouter);
 
-app.listen(5000);
+app.listen(5001, () => {
+    console.log("listing to port 5001")
+});
 
 module.exports = app;

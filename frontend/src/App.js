@@ -10,12 +10,17 @@ function App() {
   const [isLogInShown, setIsLogInShown] = useState(false);
 
   function registerClick (event){
-    // 👇️ toggle shown state
+    if (isLogInShown) {
+      setIsLogInShown(current => !current);
+    }
     setIsRegisterShown(current => !current);
+
   }
 
   function logInClick (event){
-    // 👇️ toggle shown state
+    if (isRegisterShown) {
+      setIsRegisterShown(current => !current);
+    }
     setIsLogInShown(current => !current);
   }
 
@@ -23,12 +28,22 @@ function App() {
     <div className="App">
       <BinToggle />
       <header className="App-header">
-        <button onClick={registerClick}>Register</button>
-        {isRegisterShown && <Register setIsRegisterShown={setIsRegisterShown}/>}
-        <button onClick={logInClick}>Log in</button>
-        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown}/>}
+      <div id="title">
+        <div id="title-to">to-</div>
+        <div id="title-do">do</div>
+      </div>
+
+      <div id="header-buttons">
+        <button className="header-btn" id="login" onClick={logInClick}>sign in</button>
+        <button className="header-btn" id="register" onClick={registerClick}>register</button>
+      </div>
+
       </header>
+      <main>
+        {isRegisterShown && <Register setIsRegisterShown={setIsRegisterShown}/>}
+        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown}/>}
       <Tasks />
+      </main>
     </div>
   );
 }
