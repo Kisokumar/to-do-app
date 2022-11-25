@@ -11,6 +11,12 @@ export default function TaskList(props) {
   const [isAddTaskShown, setIsAddTaskShown] = useState(false);
 
   function AddTaskClick() {
+    if(props.isLogInShown) {
+      props.setIsLogInShown((current) => !current);
+    }
+    if(props.isRegisterShown) {
+      props.setIsRegisterShown((current) => !current);
+    }
     setIsAddTaskShown(current => !current);
   }
 
@@ -18,6 +24,8 @@ export default function TaskList(props) {
   useEffect(() => {
     fetchData(`/users/${props.globalusername}/tasks`, "GET").then((data) => setData(data));
   }, [data]);
+
+  console.log(data);
 
     return (
 
@@ -32,7 +40,8 @@ export default function TaskList(props) {
 
         {data.map((item, index) => <OneTask key={index}
           title={item.taskname}
-          date={item.datedue}/>)}
+          date={item.datedue}
+          id={item.id}/>)}
       </div>
     );
   };
