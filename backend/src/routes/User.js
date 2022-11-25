@@ -16,7 +16,11 @@ userRouter.get("/:username", async (req, res) => {
     const user = await User.findOne({
       where: { username: req.params.username },
     });
-    res.status(200).send(user);
+    if (!user) {
+      res.status(500).send("User not found!");
+    } else {
+      res.status(500).send(user);
+    }
   } catch (error) {
     res.status(500).send(error);
   }
