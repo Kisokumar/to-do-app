@@ -8,9 +8,9 @@
     <a href="https://github.com/Kisokumar/To-do-app/issues">Request Feature</a>
   </p>
 </p>
-<summary>
-  <h2 style="display: inline-block"> 🚀 About </h2>
-</summary>
+
+## 🚀 About
+
 <p> An app to track all your important tasks! With functionality to categorise tasks by importance and dates. Made with react, express and sequelize. </p>
 
 ---
