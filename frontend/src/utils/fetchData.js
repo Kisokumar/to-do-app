@@ -1,4 +1,4 @@
-const localhost = "http://localhost:5001";
+const localhost = "http://localhost:5003";
 
 export default async function fetchData(route, method, body) {
   let response = {};
@@ -11,7 +11,6 @@ export default async function fetchData(route, method, body) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(body)
     });
-
   }
 
   const data = await response.json();
