@@ -58,7 +58,6 @@ userRouter.post("/:username/tasks/create", async (req, res) => {
 
 userRouter.get("/tasks/:taskid/", async (req, res) => {
   try {
-    console.log("hi");
     const tasks = await Task.findOne({ where: { id: req.params.taskid } });
     res.status(200).send(tasks);
   } catch (error) {
@@ -66,14 +65,18 @@ userRouter.get("/tasks/:taskid/", async (req, res) => {
   }
 });
 
-userRouter.delete("/tasks/:taskid/delete", async (req, res) => {
-    try {
-        const del = await Task.destroy({where: { id: req.params.taskid}})
-        res.sendStatus(200).send(del);
-    } catch (error) {
-        res.sendStatus(500).send(error);
+userRouter.delete("/tasks/:taskid/", async (req, res) => {
+  try {
+    const task = await Task.findOne({ where: { id: req.params.taskid } });
+    if (!task) {
+      res.sendStatus(404).send("Task not found!");
+    } else {
+      const del = await Task.destroy({ where: { id: req.params.taskid } });
+      res.sendStatus(200).send("Successfully deleted");
     }
+  } catch (error) {
+    res.sendStatus(500).send(error);
+  }
 });
-
 
 module.exports = userRouter;
