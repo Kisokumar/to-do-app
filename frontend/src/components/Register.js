@@ -21,6 +21,7 @@ export default function Register(props) {
     registerUser(newUser);
     props.setIsRegisterShown(current => !current);
     alert("Registration completed successfully");
+    alert("LogIn to start using to-do");
   }
 
   return(

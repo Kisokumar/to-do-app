@@ -4,6 +4,7 @@ import Register from './components/Register';
 import { LogIn, globalusername } from './components/LogIn';
 import './App.css';
 import Tasks from './components/Tasks'
+import TaskList from './components/TaskList';
 import BinToggle from './components/BinToggle'
 
 
@@ -50,7 +51,8 @@ function App() {
         )}
         {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown} />}
         {console.log("login", globalusername)}
-        <Tasks />
+
+        <TaskList globalusername={globalusername}/>
 
       </main>
     </div>

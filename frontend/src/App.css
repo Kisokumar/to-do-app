@@ -78,3 +78,25 @@ font-size:larger;
   margin-top: 10px;
   font-size: large;
 }
+
+.task-item {
+  display: grid;
+  grid-template-columns: 0.3fr 3fr 3fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-list {
+  padding: 10px;
+}
+
+#add-task {
+  height: 40px;
+  width: 40px;
+}
+
+img {
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+}
