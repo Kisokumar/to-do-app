@@ -68,7 +68,7 @@ userRouter.delete("/tasks/:taskid/", async (req, res) => {
   const task = await Task.findOne({ where: { id: req.params.taskid } });
   try {
     const del = await Task.destroy({ where: { id: req.params.taskid } });
-    if (!del) {
+    if (del) {
       res.status(200).send("Successfully deleted");
     }
   } catch (error) {
