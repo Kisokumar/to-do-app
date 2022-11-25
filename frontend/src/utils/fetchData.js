@@ -11,7 +11,6 @@ export default async function fetchData(route, method, body) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(body)
     });
-
   }
 
   const data = await response.json();
