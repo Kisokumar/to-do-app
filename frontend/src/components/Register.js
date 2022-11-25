@@ -17,7 +17,8 @@ export default function Register(props) {
       email:email
     }
 
-    console.log(newUser);
+    if
+
     registerUser(newUser);
     props.setIsRegisterShown(current => !current);
     alert("Registration completed successfully");
