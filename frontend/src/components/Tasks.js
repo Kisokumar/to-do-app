@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Button from '@mui/material/Button';
 
 export default function Tasks (props){
     return (<div>
@@ -19,8 +18,5 @@ const CheckBox = styled.div `
     border-color: #ff8314;
     background-color: transparent;
     // display: inline;
-
-
-
 `
 

@@ -1,5 +1,11 @@
-export default function BinToggle(){
+import styled from 'styled-components'
+
+
+export default function binToggle() {
     return (<div>
-        //need to add bin emoji
+
+ {/* <img src = {require ="../public/bin.png"} height = "100px"/> */}
+ <img src={require('../utils/bin.png')} height = "100px" />
+
     </div>)
 }
