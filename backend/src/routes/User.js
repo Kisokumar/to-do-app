@@ -64,4 +64,14 @@ userRouter.get("/tasks/:taskid/", async (req, res) => {
   }
 });
 
+userRouter.delete("/:taskid/delete/", async (req, res) => {
+    try {
+      const del = await Task.destroy({where: { id: req.params.taskid}})
+      res.status(200).send(del)
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
+
+
 module.exports = userRouter;
