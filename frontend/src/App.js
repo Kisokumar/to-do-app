@@ -1,30 +1,60 @@
+
 import { useState } from 'react';
 import Register from './components/Register';
-import LogIn from './components/LogIn';
+import { LogIn, globalusername } from './components/LogIn';
 import './App.css';
+import Tasks from './components/Tasks'
+import TaskList from './components/TaskList';
+import BinToggle from './components/BinToggle'
+
 
 function App() {
   const [isRegisterShown, setIsRegisterShown] = useState(false);
   const [isLogInShown, setIsLogInShown] = useState(false);
 
-  function registerClick (event){
-    // 👇️ toggle shown state
-    setIsRegisterShown(current => !current);
+  function registerClick(event) {
+    if (isLogInShown) {
+      setIsLogInShown((current) => !current);
+    }
+    setIsRegisterShown((current) => !current);
   }
 
-  function logInClick (event){
-    // 👇️ toggle shown state
-    setIsLogInShown(current => !current);
+  function logInClick(event) {
+    if (isRegisterShown) {
+      setIsRegisterShown((current) => !current);
+    }
+    setIsLogInShown((current) => !current);
   }
 
   return (
     <div className="App">
+      <BinToggle />
       <header className="App-header">
-        <button onClick={registerClick}>Register</button>
-        {isRegisterShown && <Register setIsRegisterShown={setIsRegisterShown}/>}
-        <button onClick={logInClick}>Log in</button>
-        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown}/>}
+        <div id="title">
+          <div id="title-to">to-</div>
+          <div id="title-do">do</div>
+        </div>
+
+        <div id="header-buttons">
+          <button className="header-btn" id="login" onClick={logInClick}>
+            sign in
+          </button>
+          <button className="header-btn" id="register" onClick={registerClick}>
+            register
+          </button>
+        </div>
       </header>
+      <main>
+
+        {isRegisterShown && (
+          <Register setIsRegisterShown={setIsRegisterShown} />
+        )}
+        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown} />}
+        {console.log("login", globalusername)}
+
+        <TaskList globalusername={globalusername}/>
+
+      </main>
     </div>
   );
 }
