@@ -1,4 +1,5 @@
 import { useState } from "react"
+import fetchData from "../utils/fetchData";
 import registerUser from "../utils/resgisterUser";
 
 export default function Register(props) {
@@ -16,10 +17,15 @@ export default function Register(props) {
       password: password,
       email:email
     }
-    registerUser(newUser);
-    props.setIsRegisterShown(current => !current);
-    alert("Registration completed successfully");
-    alert("LogIn to start using to-do");
+
+    try {
+      registerUser(newUser);
+      props.setIsRegisterShown(current => !current);
+      console.log("Registration completed successfully");
+      console.log("LogIn to start using to-do");
+    } catch (error) {
+      console.log("username already exists");
+    }
   }
 
   return(
