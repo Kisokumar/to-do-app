@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import Register from './components/Register';
-import LogIn from './components/LogIn';
+import { LogIn, globalusername } from './components/LogIn';
 import './App.css';
 import Tasks from './components/Tasks'
 import BinToggle from './components/BinToggle'
