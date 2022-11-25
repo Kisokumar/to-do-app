@@ -28,7 +28,6 @@ userRouter.get("/:username", async (req, res) => {
 
 userRouter.get("/:username/tasks", async (req, res) => {
   try {
-    console.log("hi");
     const tasks = await Task.findAll({
       where: { username: req.params.username },
     });
@@ -66,13 +65,11 @@ userRouter.get("/tasks/:taskid/", async (req, res) => {
 });
 
 userRouter.delete("/tasks/:taskid/", async (req, res) => {
+  const task = await Task.findOne({ where: { id: req.params.taskid } });
   try {
-    const task = await Task.findOne({ where: { id: req.params.taskid } });
-    if (!task) {
-      res.sendStatus(404).send("Task not found!");
-    } else {
-      const del = await Task.destroy({ where: { id: req.params.taskid } });
-      res.sendStatus(200).send("Successfully deleted");
+    const del = await Task.destroy({ where: { id: req.params.taskid } });
+    if (!del) {
+      res.status(200).send("Successfully deleted");
     }
   } catch (error) {
     res.sendStatus(500).send(error);
