@@ -19,7 +19,7 @@ function LogIn(props) {
 
     console.log(user);
     if (userExists) {
-      alert("Log in completed successfully");
+      console.log("Log in completed successfully");
     }
     else {
       alert("Incorrect username or password");

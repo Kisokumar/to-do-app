@@ -28,7 +28,6 @@ function App() {
 
   return (
     <div className="App">
-      <BinToggle />
       <header className="App-header">
         <div id="title">
           <div id="title-to">to-</div>
@@ -52,7 +51,7 @@ function App() {
         {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown} />}
         {console.log("login", globalusername)}
 
-        <TaskList globalusername={globalusername}/>
+        <TaskList globalusername={globalusername} setIsLogInShown={setIsLogInShown} setIsRegisterShown={setIsRegisterShown} isLogInShown={isLogInShown} isRegisterShown={isRegisterShown}/>
 
       </main>
     </div>

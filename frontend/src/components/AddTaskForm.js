@@ -22,7 +22,7 @@ export default function AddTaskForm(props) {
     console.log(newTask);
     addTask(newTask, props.globalusername);
     props.setIsAddTaskShown(current => !current);
-    alert("Task added successfully");
+    console.log("Task added successfully");
   }
 
   return(
