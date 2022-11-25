@@ -2,12 +2,13 @@ import { useState } from "react"
 import userExists from "../utils/userExists";
 
 
+
 let globalusername;
 
 function LogIn(props) {
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
 
   function submitLogIn(event) {
     event.preventDefault()

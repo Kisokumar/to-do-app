@@ -1,7 +1,12 @@
-import { useState } from "react";
-import  Register from "./components/Register";
-import { LogIn, globalusername } from "./components/LogIn";
-import "./App.css";
+
+import { useState } from 'react';
+import Register from './components/Register';
+import { LogIn, globalusername } from './components/LogIn';
+import './App.css';
+import Tasks from './components/Tasks'
+import TaskList from './components/TaskList';
+import BinToggle from './components/BinToggle'
+
 
 function App() {
   const [isRegisterShown, setIsRegisterShown] = useState(false);
@@ -23,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <BinToggle />
       <header className="App-header">
         <div id="title">
           <div id="title-to">to-</div>
@@ -39,11 +45,15 @@ function App() {
         </div>
       </header>
       <main>
+
         {isRegisterShown && (
           <Register setIsRegisterShown={setIsRegisterShown} />
         )}
         {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown} />}
         {console.log("login", globalusername)}
+
+        <TaskList globalusername={globalusername}/>
+
       </main>
     </div>
   );
