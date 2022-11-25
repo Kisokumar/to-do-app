@@ -20,6 +20,7 @@ function LogIn(props) {
     console.log(user);
     if (userExists) {
       console.log("Log in completed successfully");
+      props.setIsUserLogged(current => !current);
     }
     else {
       alert("Incorrect username or password");

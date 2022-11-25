@@ -1,21 +1,24 @@
-
-import { useState } from 'react';
-import Register from './components/Register';
-import { LogIn, globalusername } from './components/LogIn';
-import './App.css';
-import Tasks from './components/Tasks'
-import TaskList from './components/TaskList';
-import BinToggle from './components/BinToggle'
-
+import { useState } from "react";
+import Register from "./components/Register";
+import { LogIn, globalusername } from "./components/LogIn";
+import "./App.css";
+import Tasks from "./components/Tasks";
+import TaskList from "./components/TaskList";
+import BinToggle from "./components/BinToggle";
 
 function App() {
   const [isRegisterShown, setIsRegisterShown] = useState(false);
   const [isLogInShown, setIsLogInShown] = useState(false);
+  const [isUserlogged, setIsUserLogged] = useState(false);
 
   function registerClick(event) {
     if (isLogInShown) {
       setIsLogInShown((current) => !current);
     }
+    if (isUserlogged) {
+      setIsUserLogged((current) => !current);
+    }
+
     setIsRegisterShown((current) => !current);
   }
 
@@ -23,6 +26,10 @@ function App() {
     if (isRegisterShown) {
       setIsRegisterShown((current) => !current);
     }
+    if (isUserlogged) {
+      setIsUserLogged((current) => !current);
+    }
+
     setIsLogInShown((current) => !current);
   }
 
@@ -44,15 +51,26 @@ function App() {
         </div>
       </header>
       <main>
-
         {isRegisterShown && (
           <Register setIsRegisterShown={setIsRegisterShown} />
         )}
-        {isLogInShown && <LogIn setIsLogInShown={setIsLogInShown} />}
+        {isLogInShown && (
+          <LogIn
+            setIsLogInShown={setIsLogInShown}
+            isUserlogged={isUserlogged}
+            setIsUserLogged={setIsUserLogged}
+          />
+        )}
         {console.log("login", globalusername)}
-
-        <TaskList globalusername={globalusername} setIsLogInShown={setIsLogInShown} setIsRegisterShown={setIsRegisterShown} isLogInShown={isLogInShown} isRegisterShown={isRegisterShown}/>
-
+        {isUserlogged && (
+          <TaskList
+            globalusername={globalusername}
+            setIsLogInShown={setIsLogInShown}
+            setIsRegisterShown={setIsRegisterShown}
+            isLogInShown={isLogInShown}
+            isRegisterShown={isRegisterShown}
+          />
+        )}
       </main>
     </div>
   );
